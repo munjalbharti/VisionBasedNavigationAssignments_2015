@@ -153,608 +153,80 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-exercise2/CMakeFiles/actionlib_generate_messages_cpp.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
-.PHONY : exercise2/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
+exercise2/CMakeFiles/dvo.dir/rule:
+	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/dvo.dir/rule
+.PHONY : exercise2/CMakeFiles/dvo.dir/rule
 
 # Convenience name for target.
-actionlib_generate_messages_cpp: exercise2/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
-.PHONY : actionlib_generate_messages_cpp
-
-# fast build rule for target.
-actionlib_generate_messages_cpp/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/actionlib_generate_messages_cpp.dir/build.make exercise2/CMakeFiles/actionlib_generate_messages_cpp.dir/build
-.PHONY : actionlib_generate_messages_cpp/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/actionlib_generate_messages_lisp.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/actionlib_generate_messages_lisp.dir/rule
-.PHONY : exercise2/CMakeFiles/actionlib_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_lisp: exercise2/CMakeFiles/actionlib_generate_messages_lisp.dir/rule
-.PHONY : actionlib_generate_messages_lisp
+dvo: exercise2/CMakeFiles/dvo.dir/rule
+.PHONY : dvo
 
 # fast build rule for target.
-actionlib_generate_messages_lisp/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/actionlib_generate_messages_lisp.dir/build.make exercise2/CMakeFiles/actionlib_generate_messages_lisp.dir/build
-.PHONY : actionlib_generate_messages_lisp/fast
+dvo/fast:
+	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/dvo.dir/build.make exercise2/CMakeFiles/dvo.dir/build
+.PHONY : dvo/fast
 
 # Convenience name for target.
-exercise2/CMakeFiles/actionlib_generate_messages_py.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/actionlib_generate_messages_py.dir/rule
-.PHONY : exercise2/CMakeFiles/actionlib_generate_messages_py.dir/rule
+exercise2/CMakeFiles/dvo_node.dir/rule:
+	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/dvo_node.dir/rule
+.PHONY : exercise2/CMakeFiles/dvo_node.dir/rule
 
 # Convenience name for target.
-actionlib_generate_messages_py: exercise2/CMakeFiles/actionlib_generate_messages_py.dir/rule
-.PHONY : actionlib_generate_messages_py
-
-# fast build rule for target.
-actionlib_generate_messages_py/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/actionlib_generate_messages_py.dir/build.make exercise2/CMakeFiles/actionlib_generate_messages_py.dir/build
-.PHONY : actionlib_generate_messages_py/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
-.PHONY : exercise2/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_cpp: exercise2/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
-.PHONY : actionlib_msgs_generate_messages_cpp
+dvo_node: exercise2/CMakeFiles/dvo_node.dir/rule
+.PHONY : dvo_node
 
 # fast build rule for target.
-actionlib_msgs_generate_messages_cpp/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make exercise2/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build
-.PHONY : actionlib_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-.PHONY : exercise2/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_lisp: exercise2/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-.PHONY : actionlib_msgs_generate_messages_lisp
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_lisp/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make exercise2/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
-.PHONY : actionlib_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
-.PHONY : exercise2/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_py: exercise2/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
-.PHONY : actionlib_msgs_generate_messages_py
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_py/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make exercise2/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build
-.PHONY : actionlib_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/bond_generate_messages_cpp.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/bond_generate_messages_cpp.dir/rule
-.PHONY : exercise2/CMakeFiles/bond_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_cpp: exercise2/CMakeFiles/bond_generate_messages_cpp.dir/rule
-.PHONY : bond_generate_messages_cpp
-
-# fast build rule for target.
-bond_generate_messages_cpp/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/bond_generate_messages_cpp.dir/build.make exercise2/CMakeFiles/bond_generate_messages_cpp.dir/build
-.PHONY : bond_generate_messages_cpp/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/bond_generate_messages_lisp.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/bond_generate_messages_lisp.dir/rule
-.PHONY : exercise2/CMakeFiles/bond_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_lisp: exercise2/CMakeFiles/bond_generate_messages_lisp.dir/rule
-.PHONY : bond_generate_messages_lisp
-
-# fast build rule for target.
-bond_generate_messages_lisp/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/bond_generate_messages_lisp.dir/build.make exercise2/CMakeFiles/bond_generate_messages_lisp.dir/build
-.PHONY : bond_generate_messages_lisp/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/bond_generate_messages_py.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/bond_generate_messages_py.dir/rule
-.PHONY : exercise2/CMakeFiles/bond_generate_messages_py.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_py: exercise2/CMakeFiles/bond_generate_messages_py.dir/rule
-.PHONY : bond_generate_messages_py
-
-# fast build rule for target.
-bond_generate_messages_py/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/bond_generate_messages_py.dir/build.make exercise2/CMakeFiles/bond_generate_messages_py.dir/build
-.PHONY : bond_generate_messages_py/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-.PHONY : exercise2/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_gencfg: exercise2/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-.PHONY : dynamic_reconfigure_gencfg
-
-# fast build rule for target.
-dynamic_reconfigure_gencfg/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/dynamic_reconfigure_gencfg.dir/build.make exercise2/CMakeFiles/dynamic_reconfigure_gencfg.dir/build
-.PHONY : dynamic_reconfigure_gencfg/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-.PHONY : exercise2/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_cpp: exercise2/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-.PHONY : dynamic_reconfigure_generate_messages_cpp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_cpp/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make exercise2/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-.PHONY : exercise2/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_lisp: exercise2/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-.PHONY : dynamic_reconfigure_generate_messages_lisp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_lisp/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make exercise2/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-.PHONY : exercise2/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_py: exercise2/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-.PHONY : dynamic_reconfigure_generate_messages_py
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_py/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build.make exercise2/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_py/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-.PHONY : exercise2/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_cpp: exercise2/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-.PHONY : geometry_msgs_generate_messages_cpp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_cpp/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make exercise2/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-.PHONY : geometry_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-.PHONY : exercise2/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_lisp: exercise2/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-.PHONY : geometry_msgs_generate_messages_lisp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_lisp/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make exercise2/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
-.PHONY : geometry_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-.PHONY : exercise2/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_py: exercise2/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-.PHONY : geometry_msgs_generate_messages_py
-
-# fast build rule for target.
-geometry_msgs_generate_messages_py/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make exercise2/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-.PHONY : geometry_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/nodelet_generate_messages_cpp.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/nodelet_generate_messages_cpp.dir/rule
-.PHONY : exercise2/CMakeFiles/nodelet_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_cpp: exercise2/CMakeFiles/nodelet_generate_messages_cpp.dir/rule
-.PHONY : nodelet_generate_messages_cpp
-
-# fast build rule for target.
-nodelet_generate_messages_cpp/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/nodelet_generate_messages_cpp.dir/build.make exercise2/CMakeFiles/nodelet_generate_messages_cpp.dir/build
-.PHONY : nodelet_generate_messages_cpp/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/nodelet_generate_messages_lisp.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/nodelet_generate_messages_lisp.dir/rule
-.PHONY : exercise2/CMakeFiles/nodelet_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_lisp: exercise2/CMakeFiles/nodelet_generate_messages_lisp.dir/rule
-.PHONY : nodelet_generate_messages_lisp
-
-# fast build rule for target.
-nodelet_generate_messages_lisp/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/nodelet_generate_messages_lisp.dir/build.make exercise2/CMakeFiles/nodelet_generate_messages_lisp.dir/build
-.PHONY : nodelet_generate_messages_lisp/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/nodelet_generate_messages_py.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/nodelet_generate_messages_py.dir/rule
-.PHONY : exercise2/CMakeFiles/nodelet_generate_messages_py.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_py: exercise2/CMakeFiles/nodelet_generate_messages_py.dir/rule
-.PHONY : nodelet_generate_messages_py
-
-# fast build rule for target.
-nodelet_generate_messages_py/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/nodelet_generate_messages_py.dir/build.make exercise2/CMakeFiles/nodelet_generate_messages_py.dir/build
-.PHONY : nodelet_generate_messages_py/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/rule
-.PHONY : exercise2/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-pcl_msgs_generate_messages_cpp: exercise2/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/rule
-.PHONY : pcl_msgs_generate_messages_cpp
-
-# fast build rule for target.
-pcl_msgs_generate_messages_cpp/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/build.make exercise2/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/build
-.PHONY : pcl_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/rule
-.PHONY : exercise2/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-pcl_msgs_generate_messages_lisp: exercise2/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/rule
-.PHONY : pcl_msgs_generate_messages_lisp
-
-# fast build rule for target.
-pcl_msgs_generate_messages_lisp/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/build.make exercise2/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/build
-.PHONY : pcl_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/pcl_msgs_generate_messages_py.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/pcl_msgs_generate_messages_py.dir/rule
-.PHONY : exercise2/CMakeFiles/pcl_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-pcl_msgs_generate_messages_py: exercise2/CMakeFiles/pcl_msgs_generate_messages_py.dir/rule
-.PHONY : pcl_msgs_generate_messages_py
-
-# fast build rule for target.
-pcl_msgs_generate_messages_py/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/pcl_msgs_generate_messages_py.dir/build.make exercise2/CMakeFiles/pcl_msgs_generate_messages_py.dir/build
-.PHONY : pcl_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/pcl_ros_gencfg.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/pcl_ros_gencfg.dir/rule
-.PHONY : exercise2/CMakeFiles/pcl_ros_gencfg.dir/rule
-
-# Convenience name for target.
-pcl_ros_gencfg: exercise2/CMakeFiles/pcl_ros_gencfg.dir/rule
-.PHONY : pcl_ros_gencfg
-
-# fast build rule for target.
-pcl_ros_gencfg/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/pcl_ros_gencfg.dir/build.make exercise2/CMakeFiles/pcl_ros_gencfg.dir/build
-.PHONY : pcl_ros_gencfg/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/point_cloud_world_cordinates.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/point_cloud_world_cordinates.dir/rule
-.PHONY : exercise2/CMakeFiles/point_cloud_world_cordinates.dir/rule
-
-# Convenience name for target.
-point_cloud_world_cordinates: exercise2/CMakeFiles/point_cloud_world_cordinates.dir/rule
-.PHONY : point_cloud_world_cordinates
-
-# fast build rule for target.
-point_cloud_world_cordinates/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/point_cloud_world_cordinates.dir/build.make exercise2/CMakeFiles/point_cloud_world_cordinates.dir/build
-.PHONY : point_cloud_world_cordinates/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/rgb_to_cloud.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/rgb_to_cloud.dir/rule
-.PHONY : exercise2/CMakeFiles/rgb_to_cloud.dir/rule
-
-# Convenience name for target.
-rgb_to_cloud: exercise2/CMakeFiles/rgb_to_cloud.dir/rule
-.PHONY : rgb_to_cloud
-
-# fast build rule for target.
-rgb_to_cloud/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/rgb_to_cloud.dir/build.make exercise2/CMakeFiles/rgb_to_cloud.dir/build
-.PHONY : rgb_to_cloud/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-.PHONY : exercise2/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_cpp: exercise2/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-.PHONY : sensor_msgs_generate_messages_cpp
-
-# fast build rule for target.
-sensor_msgs_generate_messages_cpp/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make exercise2/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
-.PHONY : sensor_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-.PHONY : exercise2/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_lisp: exercise2/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-.PHONY : sensor_msgs_generate_messages_lisp
-
-# fast build rule for target.
-sensor_msgs_generate_messages_lisp/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make exercise2/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
-.PHONY : sensor_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-.PHONY : exercise2/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_py: exercise2/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-.PHONY : sensor_msgs_generate_messages_py
-
-# fast build rule for target.
-sensor_msgs_generate_messages_py/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make exercise2/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
-.PHONY : sensor_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
-.PHONY : exercise2/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-tf2_msgs_generate_messages_cpp: exercise2/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
-.PHONY : tf2_msgs_generate_messages_cpp
-
-# fast build rule for target.
-tf2_msgs_generate_messages_cpp/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build.make exercise2/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build
-.PHONY : tf2_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
-.PHONY : exercise2/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-tf2_msgs_generate_messages_lisp: exercise2/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
-.PHONY : tf2_msgs_generate_messages_lisp
-
-# fast build rule for target.
-tf2_msgs_generate_messages_lisp/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build.make exercise2/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build
-.PHONY : tf2_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
-.PHONY : exercise2/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-tf2_msgs_generate_messages_py: exercise2/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
-.PHONY : tf2_msgs_generate_messages_py
-
-# fast build rule for target.
-tf2_msgs_generate_messages_py/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/tf2_msgs_generate_messages_py.dir/build.make exercise2/CMakeFiles/tf2_msgs_generate_messages_py.dir/build
-.PHONY : tf2_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/tf_generate_messages_cpp.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/tf_generate_messages_cpp.dir/rule
-.PHONY : exercise2/CMakeFiles/tf_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_cpp: exercise2/CMakeFiles/tf_generate_messages_cpp.dir/rule
-.PHONY : tf_generate_messages_cpp
-
-# fast build rule for target.
-tf_generate_messages_cpp/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/tf_generate_messages_cpp.dir/build.make exercise2/CMakeFiles/tf_generate_messages_cpp.dir/build
-.PHONY : tf_generate_messages_cpp/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/tf_generate_messages_lisp.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/tf_generate_messages_lisp.dir/rule
-.PHONY : exercise2/CMakeFiles/tf_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_lisp: exercise2/CMakeFiles/tf_generate_messages_lisp.dir/rule
-.PHONY : tf_generate_messages_lisp
-
-# fast build rule for target.
-tf_generate_messages_lisp/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/tf_generate_messages_lisp.dir/build.make exercise2/CMakeFiles/tf_generate_messages_lisp.dir/build
-.PHONY : tf_generate_messages_lisp/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/tf_generate_messages_py.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/tf_generate_messages_py.dir/rule
-.PHONY : exercise2/CMakeFiles/tf_generate_messages_py.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_py: exercise2/CMakeFiles/tf_generate_messages_py.dir/rule
-.PHONY : tf_generate_messages_py
-
-# fast build rule for target.
-tf_generate_messages_py/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/tf_generate_messages_py.dir/build.make exercise2/CMakeFiles/tf_generate_messages_py.dir/build
-.PHONY : tf_generate_messages_py/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/topic_tools_generate_messages_cpp.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/topic_tools_generate_messages_cpp.dir/rule
-.PHONY : exercise2/CMakeFiles/topic_tools_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-topic_tools_generate_messages_cpp: exercise2/CMakeFiles/topic_tools_generate_messages_cpp.dir/rule
-.PHONY : topic_tools_generate_messages_cpp
-
-# fast build rule for target.
-topic_tools_generate_messages_cpp/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/topic_tools_generate_messages_cpp.dir/build.make exercise2/CMakeFiles/topic_tools_generate_messages_cpp.dir/build
-.PHONY : topic_tools_generate_messages_cpp/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/topic_tools_generate_messages_lisp.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/topic_tools_generate_messages_lisp.dir/rule
-.PHONY : exercise2/CMakeFiles/topic_tools_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-topic_tools_generate_messages_lisp: exercise2/CMakeFiles/topic_tools_generate_messages_lisp.dir/rule
-.PHONY : topic_tools_generate_messages_lisp
-
-# fast build rule for target.
-topic_tools_generate_messages_lisp/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/topic_tools_generate_messages_lisp.dir/build.make exercise2/CMakeFiles/topic_tools_generate_messages_lisp.dir/build
-.PHONY : topic_tools_generate_messages_lisp/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/topic_tools_generate_messages_py.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/topic_tools_generate_messages_py.dir/rule
-.PHONY : exercise2/CMakeFiles/topic_tools_generate_messages_py.dir/rule
-
-# Convenience name for target.
-topic_tools_generate_messages_py: exercise2/CMakeFiles/topic_tools_generate_messages_py.dir/rule
-.PHONY : topic_tools_generate_messages_py
-
-# fast build rule for target.
-topic_tools_generate_messages_py/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/topic_tools_generate_messages_py.dir/build.make exercise2/CMakeFiles/topic_tools_generate_messages_py.dir/build
-.PHONY : topic_tools_generate_messages_py/fast
-
-# Convenience name for target.
-exercise2/CMakeFiles/undistort_image.dir/rule:
-	cd /work/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 exercise2/CMakeFiles/undistort_image.dir/rule
-.PHONY : exercise2/CMakeFiles/undistort_image.dir/rule
-
-# Convenience name for target.
-undistort_image: exercise2/CMakeFiles/undistort_image.dir/rule
-.PHONY : undistort_image
-
-# fast build rule for target.
-undistort_image/fast:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/undistort_image.dir/build.make exercise2/CMakeFiles/undistort_image.dir/build
-.PHONY : undistort_image/fast
-
-src/point_cloud_world_cordinates.o: src/point_cloud_world_cordinates.cpp.o
-.PHONY : src/point_cloud_world_cordinates.o
+dvo_node/fast:
+	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/dvo_node.dir/build.make exercise2/CMakeFiles/dvo_node.dir/build
+.PHONY : dvo_node/fast
+
+src/dvo.o: src/dvo.cpp.o
+.PHONY : src/dvo.o
 
 # target to build an object file
-src/point_cloud_world_cordinates.cpp.o:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/point_cloud_world_cordinates.dir/build.make exercise2/CMakeFiles/point_cloud_world_cordinates.dir/src/point_cloud_world_cordinates.cpp.o
-.PHONY : src/point_cloud_world_cordinates.cpp.o
+src/dvo.cpp.o:
+	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/dvo.dir/build.make exercise2/CMakeFiles/dvo.dir/src/dvo.cpp.o
+.PHONY : src/dvo.cpp.o
 
-src/point_cloud_world_cordinates.i: src/point_cloud_world_cordinates.cpp.i
-.PHONY : src/point_cloud_world_cordinates.i
+src/dvo.i: src/dvo.cpp.i
+.PHONY : src/dvo.i
 
 # target to preprocess a source file
-src/point_cloud_world_cordinates.cpp.i:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/point_cloud_world_cordinates.dir/build.make exercise2/CMakeFiles/point_cloud_world_cordinates.dir/src/point_cloud_world_cordinates.cpp.i
-.PHONY : src/point_cloud_world_cordinates.cpp.i
+src/dvo.cpp.i:
+	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/dvo.dir/build.make exercise2/CMakeFiles/dvo.dir/src/dvo.cpp.i
+.PHONY : src/dvo.cpp.i
 
-src/point_cloud_world_cordinates.s: src/point_cloud_world_cordinates.cpp.s
-.PHONY : src/point_cloud_world_cordinates.s
+src/dvo.s: src/dvo.cpp.s
+.PHONY : src/dvo.s
 
 # target to generate assembly for a file
-src/point_cloud_world_cordinates.cpp.s:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/point_cloud_world_cordinates.dir/build.make exercise2/CMakeFiles/point_cloud_world_cordinates.dir/src/point_cloud_world_cordinates.cpp.s
-.PHONY : src/point_cloud_world_cordinates.cpp.s
+src/dvo.cpp.s:
+	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/dvo.dir/build.make exercise2/CMakeFiles/dvo.dir/src/dvo.cpp.s
+.PHONY : src/dvo.cpp.s
 
-src/rgb_to_point_cloud.o: src/rgb_to_point_cloud.cpp.o
-.PHONY : src/rgb_to_point_cloud.o
+src/dvo_node.o: src/dvo_node.cpp.o
+.PHONY : src/dvo_node.o
 
 # target to build an object file
-src/rgb_to_point_cloud.cpp.o:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/rgb_to_cloud.dir/build.make exercise2/CMakeFiles/rgb_to_cloud.dir/src/rgb_to_point_cloud.cpp.o
-.PHONY : src/rgb_to_point_cloud.cpp.o
+src/dvo_node.cpp.o:
+	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/dvo_node.dir/build.make exercise2/CMakeFiles/dvo_node.dir/src/dvo_node.cpp.o
+.PHONY : src/dvo_node.cpp.o
 
-src/rgb_to_point_cloud.i: src/rgb_to_point_cloud.cpp.i
-.PHONY : src/rgb_to_point_cloud.i
-
-# target to preprocess a source file
-src/rgb_to_point_cloud.cpp.i:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/rgb_to_cloud.dir/build.make exercise2/CMakeFiles/rgb_to_cloud.dir/src/rgb_to_point_cloud.cpp.i
-.PHONY : src/rgb_to_point_cloud.cpp.i
-
-src/rgb_to_point_cloud.s: src/rgb_to_point_cloud.cpp.s
-.PHONY : src/rgb_to_point_cloud.s
-
-# target to generate assembly for a file
-src/rgb_to_point_cloud.cpp.s:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/rgb_to_cloud.dir/build.make exercise2/CMakeFiles/rgb_to_cloud.dir/src/rgb_to_point_cloud.cpp.s
-.PHONY : src/rgb_to_point_cloud.cpp.s
-
-src/undistort_image.o: src/undistort_image.cpp.o
-.PHONY : src/undistort_image.o
-
-# target to build an object file
-src/undistort_image.cpp.o:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/undistort_image.dir/build.make exercise2/CMakeFiles/undistort_image.dir/src/undistort_image.cpp.o
-.PHONY : src/undistort_image.cpp.o
-
-src/undistort_image.i: src/undistort_image.cpp.i
-.PHONY : src/undistort_image.i
+src/dvo_node.i: src/dvo_node.cpp.i
+.PHONY : src/dvo_node.i
 
 # target to preprocess a source file
-src/undistort_image.cpp.i:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/undistort_image.dir/build.make exercise2/CMakeFiles/undistort_image.dir/src/undistort_image.cpp.i
-.PHONY : src/undistort_image.cpp.i
+src/dvo_node.cpp.i:
+	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/dvo_node.dir/build.make exercise2/CMakeFiles/dvo_node.dir/src/dvo_node.cpp.i
+.PHONY : src/dvo_node.cpp.i
 
-src/undistort_image.s: src/undistort_image.cpp.s
-.PHONY : src/undistort_image.s
+src/dvo_node.s: src/dvo_node.cpp.s
+.PHONY : src/dvo_node.s
 
 # target to generate assembly for a file
-src/undistort_image.cpp.s:
-	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/undistort_image.dir/build.make exercise2/CMakeFiles/undistort_image.dir/src/undistort_image.cpp.s
-.PHONY : src/undistort_image.cpp.s
+src/dvo_node.cpp.s:
+	cd /work/catkin_ws/build && $(MAKE) -f exercise2/CMakeFiles/dvo_node.dir/build.make exercise2/CMakeFiles/dvo_node.dir/src/dvo_node.cpp.s
+.PHONY : src/dvo_node.cpp.s
 
 # Help Target
 help:
@@ -762,60 +234,21 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... actionlib_generate_messages_cpp"
-	@echo "... actionlib_generate_messages_lisp"
-	@echo "... actionlib_generate_messages_py"
-	@echo "... actionlib_msgs_generate_messages_cpp"
-	@echo "... actionlib_msgs_generate_messages_lisp"
-	@echo "... actionlib_msgs_generate_messages_py"
-	@echo "... bond_generate_messages_cpp"
-	@echo "... bond_generate_messages_lisp"
-	@echo "... bond_generate_messages_py"
-	@echo "... dynamic_reconfigure_gencfg"
-	@echo "... dynamic_reconfigure_generate_messages_cpp"
-	@echo "... dynamic_reconfigure_generate_messages_lisp"
-	@echo "... dynamic_reconfigure_generate_messages_py"
+	@echo "... dvo"
+	@echo "... dvo_node"
 	@echo "... edit_cache"
-	@echo "... geometry_msgs_generate_messages_cpp"
-	@echo "... geometry_msgs_generate_messages_lisp"
-	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... install"
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
-	@echo "... nodelet_generate_messages_cpp"
-	@echo "... nodelet_generate_messages_lisp"
-	@echo "... nodelet_generate_messages_py"
-	@echo "... pcl_msgs_generate_messages_cpp"
-	@echo "... pcl_msgs_generate_messages_lisp"
-	@echo "... pcl_msgs_generate_messages_py"
-	@echo "... pcl_ros_gencfg"
-	@echo "... point_cloud_world_cordinates"
 	@echo "... rebuild_cache"
-	@echo "... rgb_to_cloud"
-	@echo "... sensor_msgs_generate_messages_cpp"
-	@echo "... sensor_msgs_generate_messages_lisp"
-	@echo "... sensor_msgs_generate_messages_py"
 	@echo "... test"
-	@echo "... tf2_msgs_generate_messages_cpp"
-	@echo "... tf2_msgs_generate_messages_lisp"
-	@echo "... tf2_msgs_generate_messages_py"
-	@echo "... tf_generate_messages_cpp"
-	@echo "... tf_generate_messages_lisp"
-	@echo "... tf_generate_messages_py"
-	@echo "... topic_tools_generate_messages_cpp"
-	@echo "... topic_tools_generate_messages_lisp"
-	@echo "... topic_tools_generate_messages_py"
-	@echo "... undistort_image"
-	@echo "... src/point_cloud_world_cordinates.o"
-	@echo "... src/point_cloud_world_cordinates.i"
-	@echo "... src/point_cloud_world_cordinates.s"
-	@echo "... src/rgb_to_point_cloud.o"
-	@echo "... src/rgb_to_point_cloud.i"
-	@echo "... src/rgb_to_point_cloud.s"
-	@echo "... src/undistort_image.o"
-	@echo "... src/undistort_image.i"
-	@echo "... src/undistort_image.s"
+	@echo "... src/dvo.o"
+	@echo "... src/dvo.i"
+	@echo "... src/dvo.s"
+	@echo "... src/dvo_node.o"
+	@echo "... src/dvo_node.i"
+	@echo "... src/dvo_node.s"
 .PHONY : help
 
 

@@ -1,0 +1,8 @@
+prefix=/work/catkin_ws/install
+
+Name: exercise2
+Description: Description of exercise2
+Version: 0.0.0
+Cflags: 
+Libs: -L/work/catkin_ws/install/lib 
+Requires: 

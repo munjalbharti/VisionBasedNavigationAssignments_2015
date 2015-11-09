@@ -118,9 +118,8 @@ IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   INCLUDE("/work/catkin_ws/build/gtest/cmake_install.cmake")
   INCLUDE("/work/catkin_ws/build/beginner_tutorials/cmake_install.cmake")
-  INCLUDE("/work/catkin_ws/build/exercise3/cmake_install.cmake")
+  INCLUDE("/work/catkin_ws/build/exercise1/cmake_install.cmake")
   INCLUDE("/work/catkin_ws/build/exercise2/cmake_install.cmake")
-  INCLUDE("/work/catkin_ws/build/exercise2_/cmake_install.cmake")
   INCLUDE("/work/catkin_ws/build/learning_tf/cmake_install.cmake")
   INCLUDE("/work/catkin_ws/build/using_markers/cmake_install.cmake")
 

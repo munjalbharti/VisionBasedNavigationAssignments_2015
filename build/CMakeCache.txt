@@ -546,6 +546,12 @@ dvo_LIB_DEPENDS:STATIC=
 dynamic_reconfigure_DIR:PATH=/work/ros/indigo/share/dynamic_reconfigure/cmake
 
 //Value Computed by CMake
+exercise1_BINARY_DIR:STATIC=/work/catkin_ws/build/exercise1
+
+//Value Computed by CMake
+exercise1_SOURCE_DIR:STATIC=/work/catkin_ws/src/exercise1
+
+//Value Computed by CMake
 exercise2_BINARY_DIR:STATIC=/work/catkin_ws/build/exercise2
 
 //Value Computed by CMake
@@ -864,7 +870,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=8
+CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=7
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

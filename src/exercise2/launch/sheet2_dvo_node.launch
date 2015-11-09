@@ -1,0 +1,8 @@
+<launch>
+
+  <node launch-prefix="" pkg="sheet2_dvo" name="sheet2_dvo_node" type="sheet2_dvo_node">
+    <remap from="~image_rgb" to="/camera/rgb/image_color"/>
+    <remap from="~image_depth" to="/camera/depth/image"/>
+  </node>
+
+</launch>

@@ -6,8 +6,7 @@
 # testing this directory and lists subdirectories to be tested as well.
 SUBDIRS(gtest)
 SUBDIRS(beginner_tutorials)
-SUBDIRS(exercise3)
+SUBDIRS(exercise1)
 SUBDIRS(exercise2)
-SUBDIRS(exercise2_)
 SUBDIRS(learning_tf)
 SUBDIRS(using_markers)

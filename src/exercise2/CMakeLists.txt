@@ -4,11 +4,19 @@ project(exercise2)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS roscpp rospy sensor_msgs std_msgs cv_bridge image_transport image_geometry pcl_conversions pcl_ros message_filters tf )
+find_package(catkin REQUIRED roscpp message_filters sensor_msgs image_geometry cv_bridge pcl_conversions pcl_ros cmake_modules)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
+FIND_PACKAGE(Eigen REQUIRED)
+INCLUDE_DIRECTORIES(${EIGEN_INCLUDE_DIR})
+
+find_package(PCL 1.7 REQUIRED COMPONENTS visualization)
+include_directories(${PCL_INCLUDE_DIRS})
+add_definitions(${PCL_DEFINITIONS})
+
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O3 -ftree-vectorize -march=native")
 
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
@@ -24,10 +32,10 @@ find_package(catkin REQUIRED COMPONENTS roscpp rospy sensor_msgs std_msgs cv_bri
 ## * Let MSG_DEP_SET be the set of packages whose message types you use in
 ##   your messages/services/actions (e.g. std_msgs, actionlib_msgs, ...).
 ## * In the file package.xml:
-##   * add a build_depend tag for "message_generation"
 ##   * add a build_depend and a run_depend tag for each package in MSG_DEP_SET
-##   * If MSG_DEP_SET isn't empty the following dependency has been pulled in
-##     but can be declared for certainty nonetheless:
+##   * If MSG_DEP_SET isn't empty the following dependencies might have been
+##     pulled in transitively but can be declared for certainty nonetheless:
+##     * add a build_depend tag for "message_generation"
 ##     * add a run_depend tag for "message_runtime"
 ## * In this file (CMakeLists.txt):
 ##   * add "message_generation" and every package in MSG_DEP_SET to
@@ -66,26 +74,6 @@ find_package(catkin REQUIRED COMPONENTS roscpp rospy sensor_msgs std_msgs cv_bri
 #   std_msgs  # Or other packages containing msgs
 # )
 
-################################################
-## Declare ROS dynamic reconfigure parameters ##
-################################################
-
-## To declare and build dynamic reconfigure parameters within this
-## package, follow these steps:
-## * In the file package.xml:
-##   * add a build_depend and a run_depend tag for "dynamic_reconfigure"
-## * In this file (CMakeLists.txt):
-##   * add "dynamic_reconfigure" to
-##     find_package(catkin REQUIRED COMPONENTS ...)
-##   * uncomment the "generate_dynamic_reconfigure_options" section below
-##     and list every .cfg file to be processed
-
-## Generate dynamic reconfigure parameters in the 'cfg' folder
-# generate_dynamic_reconfigure_options(
-#   cfg/DynReconf1.cfg
-#   cfg/DynReconf2.cfg
-# )
-
 ###################################
 ## catkin specific configuration ##
 ###################################
@@ -97,7 +85,7 @@ find_package(catkin REQUIRED COMPONENTS roscpp rospy sensor_msgs std_msgs cv_bri
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES exercise2
+#  LIBRARIES sheet3_dvo
 #  CATKIN_DEPENDS other_catkin_pkg
 #  DEPENDS system_lib
 )
@@ -108,30 +96,28 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-# include_directories(include)
+include_directories(include)
 
-## Declare a C++ library
-# add_library(exercise2
-#   src/${PROJECT_NAME}/exercise2.cpp
-# )
+# Declare a cpp library
+add_library(dvo
+  src/dvo.cpp
+)
 
-## Add cmake target dependencies of the library
-## as an example, code may need to be generated before libraries
-## either from message generation or dynamic reconfigure
-# add_dependencies(exercise2 ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# Declare a cpp executabladd_executable(sheet2_dvo_node src/sheet2_dvo_node.cpp)
+add_executable(dvo_node src/dvo_node.cpp)
+## Add cmake target dependencies of the executable/library
+## as an example, message headers may need to be generated before nodes
+ #add_dependencies(sheet2_dvo_node sheet3_dvo_generate_messages_cpp)
 
-## Declare a C++ executable
-# add_executable(exercise2_node src/exercise2_node.cpp)
+# Specify libraries to link a library or executable target against
+target_link_libraries(dvo_node
+  ${catkin_LIBRARIES}
+  dvo
+)
 
-## Add cmake target dependencies of the executable
-## same as for the library above
-# add_dependencies(exercise2_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
-## Specify libraries to link a library or executable target against
-# target_link_libraries(exercise2_node
-#   ${catkin_LIBRARIES}
-# )
 
+include_directories(include ${catkin_INCLUDE_DIRS})
 #############
 ## Install ##
 #############
@@ -147,7 +133,7 @@ catkin_package(
 # )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS exercise2 exercise2_node
+# install(TARGETS sheet3_dvo sheet3_dvo_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -172,27 +158,10 @@ catkin_package(
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_exercise2.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_sheet3_dvo.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
-
-
-add_executable(undistort_image src/undistort_image.cpp)
-target_link_libraries(undistort_image ${catkin_LIBRARIES})
-
-add_executable(rgb_to_cloud src/rgb_to_point_cloud.cpp)
-target_link_libraries(rgb_to_cloud ${catkin_LIBRARIES})
-
-add_executable(point_cloud_world_cordinates src/point_cloud_world_cordinates.cpp)
-target_link_libraries(point_cloud_world_cordinates ${catkin_LIBRARIES})
-
-
-
-find_package(PCL REQUIRED)
-
-include_directories(include ${PCL_INCLUDE_DIRS})
-link_directories(${PCL_LIBRARY_DIRS})
