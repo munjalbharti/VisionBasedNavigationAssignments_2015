@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "sheet2_dvo")
+set(sheet2_dvo_MAINTAINER "stueckle <stueckle@todo.todo>")
+set(sheet2_dvo_DEPRECATED "")
+set(sheet2_dvo_VERSION "0.0.0")
+set(sheet2_dvo_BUILD_DEPENDS "roscpp" "rospy" "opencv2" "cv_bridge" "image_transport" "std_msgs" "sensor_msgs" "image_geometry" "pcl_conversions" "libpcl-all-dev" "pcl_ros" "message_filters" "tf" "eigen")
+set(sheet2_dvo_RUN_DEPENDS "roscpp" "rospy" "opencv2" "std_msgs" "cv_bridge" "image_transport" "sensor_msgs" "image_geometry" "pcl_conversions" "libpcl-all" "pcl_ros" "message_filters" "tf" "eigen")
+set(sheet2_dvo_BUILDTOOL_DEPENDS "catkin")

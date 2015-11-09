@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "exercise3")
+set(exercise3_MAINTAINER "w043 <w043@todo.todo>")
+set(exercise3_DEPRECATED "")
+set(exercise3_VERSION "0.0.0")
+set(exercise3_BUILD_DEPENDS "roscpp" "rospy" "std_msgs")
+set(exercise3_RUN_DEPENDS "roscpp" "rospy" "std_msgs")
+set(exercise3_BUILDTOOL_DEPENDS "catkin")

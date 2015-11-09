@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC   -Wno-deprecated -g -O3 -ftree-vectorize -march=native    -shared -Wl,-soname,libdvo.so -o /work/catkin_ws/devel/lib/libdvo.so CMakeFiles/dvo.dir/src/dvo.cpp.o 

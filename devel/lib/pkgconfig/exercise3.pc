@@ -1,0 +1,8 @@
+prefix=/work/catkin_ws/devel
+
+Name: exercise3
+Description: Description of exercise3
+Version: 0.0.0
+Cflags: 
+Libs: -L/work/catkin_ws/devel/lib 
+Requires: 

@@ -1,0 +1,2 @@
+beginner_tutorials:exercise2:exercise2_:exercise3:learning_tf:using_markers
+-DCATKIN_DEVEL_PREFIX=/work/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/work/catkin_ws/install -G Unix Makefiles
