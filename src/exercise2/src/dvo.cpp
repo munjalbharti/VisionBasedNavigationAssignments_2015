@@ -21,8 +21,10 @@
 #include <opencv2/imgproc/imgproc.hpp>
 
 #include <sophus/se3.hpp>
+#include <math.h>
 
 #include "ros/ros.h"
+#include <opencv2/core/eigen.hpp>
 
 #define STR1(x)  #x
 #define STR(x)  STR1(x)
@@ -467,57 +469,234 @@ void deriveNumeric(const cv::Mat &grayRef, const cv::Mat &depthRef,
 		const Eigen::VectorXf &xi, const Eigen::Matrix3f &K,
 		Eigen::VectorXf &residuals, Eigen::MatrixXf &J) {
 
+	float eps = 1e-6;
+	J = Eigen::MatrixXf::Zero(grayCur.rows * grayCur.cols, 6);
 	residuals = calculateError(grayRef, depthRef, grayCur, depthCur, xi, K);
-	//std::cout << "Calculating residual gradient numerically " << std::endl;
-	//change in twist cordinates
-	float epsilon = 0.000001;
-	int i;
 
-	int n = grayRef.cols * grayRef.rows;
-	Eigen::MatrixXf test(n,6);
-	for (i = 0; i < 6; i++) {
-		Eigen::VectorXf epsilonTransformation = Eigen::VectorXf::Zero(6);
-		//Add a small transformation to current twist cordinates
-		epsilonTransformation(i) = epsilon;
-		//std::cout << epsilonTransformation << std::endl ;
-		//Multiply transfomations in Lie group  and  back to Lie algebra *Cant we add in Lie algebra directly??
-		Eigen::VectorXf newTwist = Sophus::SE3f::log(
-				Sophus::SE3f::exp(epsilonTransformation)
-						* Sophus::SE3f::exp(xi));
+	for (int i = 0; i < 6; ++i) {
 
-		Eigen::VectorXf residualsNew = calculateError(grayRef, depthRef,
-				grayCur, depthCur, newTwist, K);
+		Eigen::VectorXf epsVec = Eigen::VectorXf::Zero(6);
+		epsVec(i) = eps;
 
-		//Change in residual when there is epsilon change in twist
-		//std::cout << residualsNew << std::endl ;
-		//std::cout << residuals << std::endl ;
-		
-		Eigen::VectorXf changeInResidual = residuals - residualsNew;
-		Eigen::VectorXf gradientResidual = changeInResidual / epsilon;
-		int n = grayRef.cols * grayRef.rows;
-		//std::out << "gradient residual is" << std::endl ;
-		//std::cout << gradientResidual  << std::endl ;
-		test.col(i) = gradientResidual; //n*6  matrix */
-		J=test ;
+		//  Multiply epsilon from left onto the current estimate
+		Eigen::VectorXf xiPerm = Sophus::SE3f::log(
+				Sophus::SE3f::exp(epsVec) * Sophus::SE3f::exp(xi));
+		J.col(i) = (calculateError(grayRef, depthRef, grayCur, depthCur, xiPerm,
+				K) - residuals) / eps;
+
 	}
+
+	/*residuals = calculateError(grayRef, depthRef, grayCur, depthCur, xi, K);
+	 //std::cout << "Calculating residual gradient numerically " << std::endl;
+	 //change in twist cordinates
+	 float epsilon = 0.000001;
+	 int i;
+
+	 int n = grayRef.cols * grayRef.rows;
+	 Eigen::MatrixXf test(n, 6);
+	 for (i = 0; i < 6; i++) {
+	 Eigen::VectorXf epsilonTransformation = Eigen::VectorXf::Zero(6);
+	 //Add a small transformation to current twist cordinates
+	 epsilonTransformation(i) = epsilon;
+	 //std::cout << epsilonTransformation << std::endl ;
+	 //Multiply transfomations in Lie group  and  back to Lie algebra *Cant we add in Lie algebra directly??
+	 Eigen::VectorXf newTwist = Sophus::SE3f::log(
+	 Sophus::SE3f::exp(epsilonTransformation)
+	 * Sophus::SE3f::exp(xi));
+
+	 Eigen::VectorXf residualsNew = calculateError(grayRef, depthRef,
+	 grayCur, depthCur, newTwist, K);
+
+	 //Change in residual when there is epsilon change in twist
+	 //std::cout << residualsNew << std::endl ;
+	 //std::cout << residuals << std::endl ;
+
+	 Eigen::VectorXf changeInResidual = residuals - residualsNew;
+	 Eigen::VectorXf gradientResidual = changeInResidual / epsilon;
+	 int n = grayRef.cols * grayRef.rows;
+	 //std::out << "gradient residual is" << std::endl ;
+	 //std::cout << gradientResidual  << std::endl ;
+	 test.col(i) = gradientResidual; //n*6  matrix
+	 J = test;
+
+	 }*/
 }
 void deriveAnalytic(const cv::Mat &grayRef, const cv::Mat &depthRef,
 		const cv::Mat &grayCur, const cv::Mat &depthCur, const cv::Mat &gradX,
 		const cv::Mat &gradY, const Eigen::VectorXf &xi,
 		const Eigen::Matrix3f &K, Eigen::VectorXf &residuals,
 		Eigen::MatrixXf &J) {
-	// TODO: implement
+
+	residuals = calculateError(grayRef, depthRef, grayCur, depthCur, xi, K);
+
+	try {
+		Eigen::Matrix3f R;
+		Eigen::Vector3f t;
+		convertSE3ToTf(xi, R, t);
+		Eigen::Matrix3f RKInv = R * K.inverse();
+
+		cv::Mat RKInv_cv;
+		cv::eigen2cv(RKInv, RKInv_cv);
+
+		cv::Mat t_cv;
+		cv::eigen2cv(t, t_cv);
+
+		cv::Mat K_cv;
+		cv::eigen2cv(K, K_cv);
+
+//	std::cout<<"xi : "<<xi<<std::endl;
+//	std::cout<<"R : "<<R<<std::endl;
+//	std::cout<<"K : "<<K<<std::endl;
+//	std::cout<<"RKInv : "<<RKInv<<std::endl;
+
+		Eigen::MatrixXf xImg(grayRef.rows, grayRef.cols);
+		xImg.fill(0);
+		Eigen::MatrixXf yImg(grayRef.rows, grayRef.cols);
+		yImg.fill(0);
+
+		//xImg = xImg;
+		//yImg = yImg;
+
+		Eigen::MatrixXf xp(grayRef.rows, grayRef.cols);
+		Eigen::MatrixXf yp(grayRef.rows, grayRef.cols);
+		Eigen::MatrixXf zp(grayRef.rows, grayRef.cols);
+
+		xp.fill(NAN);
+		yp.fill(NAN);
+		zp.fill(NAN);
+
+		for (int x = 0; x < grayRef.cols; ++x) {
+			for (int y = 0; y < grayRef.rows; ++y) {
+
+				cv::Mat temp = cv::Mat(3, 1, grayRef.type());
+				temp.at<float>(0, 0) = x;
+				temp.at<float>(1, 0) = y;
+				temp.at<float>(2, 0) = 1;
+
+				float ref_depth = depthRef.at<float>(y, x);
+
+				cv::Mat p = temp * ref_depth;
+				cv::Mat pTrans = RKInv_cv * p + t_cv;
+
+				float proj_depth = pTrans.at<float>(2, 0);
+
+//			std::cout<<"p : "<<p<<std::endl;
+//			std::cout<<"temp : "<<temp<<std::endl;
+//			std::cout<<"RKInv_cv : "<<RKInv_cv<<std::endl;
+//			std::cout<<"pTrans : "<<pTrans<<std::endl;
+//			std::cout<<"Proj Depth : "<<proj_depth << std::endl;
+				if (proj_depth > 0 && ref_depth > 0) {
+
+					//std::cout<<"ref_depth : "<<ref_depth<<std::endl;
+					cv::Mat pTransProj = K_cv * pTrans;
+
+					float pTransProj_depth = pTransProj.at<float>(2, 0);
+					float pTransProj_x = pTransProj.at<float>(0, 0);
+					float pTransProj_y = pTransProj.at<float>(1, 0);
+
+					xImg(y, x) = pTransProj_x / pTransProj_depth;
+					yImg(y, x) = pTransProj_y / pTransProj_depth;
+
+					xp(y, x) = pTrans.at<float>(0, 0);
+					yp(y, x) = pTrans.at<float>(1, 0);
+					zp(y, x) = pTrans.at<float>(2, 0);
+
+				}
+
+			}
+		}
+		Eigen::MatrixXf dxI(grayRef.rows, grayRef.cols);
+		dxI.fill(NAN);
+
+		Eigen::MatrixXf dyI(grayRef.rows, grayRef.cols);
+		dyI.fill(NAN);
+
+		cv::Mat dxI_cv;
+		cv::Mat dyI_cv;
+		cv::Mat filterX = cv::Mat::zeros(1, 3, CV_32F);
+		filterX.at<float>(0, 0) = -1;
+		filterX.at<float>(0, 2) = 1;
+		cv::Mat filterY = filterX.t();
+
+		cv::filter2D(grayCur, dxI_cv, -1, filterX);
+		cv::filter2D(grayCur, dyI_cv, -1, filterY);
+
+		cv::cv2eigen(dxI_cv, dxI);
+		cv::cv2eigen(dyI_cv, dyI);
+
+		//std::cout<<zp<<std::endl;
+
+		dxI = K(0, 0) * dxI;
+		dyI = K(1, 1) * dyI;
+		int len = grayCur.rows * grayCur.cols;
+
+		//  Eigen::MatrixXf Jac = Eigen::MatrixXf::Zero(6,grayCur.rows * grayCur.cols);
+
+		//Eigen::VectorXf dxI_vec(dxI.data(),len);
+		//Eigen::VectorXf dyI_vec(dyI.data(),len);
+
+		J = Eigen::MatrixXf::Zero(grayCur.rows * grayCur.cols, 6);
+		for (int i = 0; i < len; i++) {
+
+			//for(int j = 0; j<6;j++)
+			//{
+			int r_index = i / grayCur.cols;
+			int c_index = i % grayCur.cols;
+			//std::cout << "r:"<<r_index<<std::endl;
+			//std::cout << "c:"<<c_index<<std::endl;
+			if (zp(r_index, c_index) > 0) {
+				J(i, 0) = dxI(r_index, c_index) / zp(r_index, c_index);
+				J(i, 1) = dyI(r_index, c_index) / zp(r_index, c_index);
+				J(i, 2) = -(dxI(r_index, c_index) * xp(r_index, c_index)
+						+ dyI(r_index, c_index) * yp(r_index, c_index))
+						/ (zp(r_index, c_index) * zp(r_index, c_index));
+				J(i, 3) =
+						-(dxI(r_index, c_index) * xp(r_index, c_index)
+								* yp(r_index, c_index))
+								/ (zp(r_index, c_index) * zp(r_index, c_index)
+										- dyI(r_index, c_index)
+												* (1
+														+ std::pow(
+																(double) (yp(
+																		r_index,
+																		c_index)
+																		/ zp(
+																				r_index,
+																				c_index)),
+																2)));
+				J(i, 4) = dxI(r_index, c_index)
+						* (1
+								+ std::pow(
+										(double) (xp(r_index, c_index)
+												/ zp(r_index, c_index)), 2))
+						+ (dyI(r_index, c_index) * xp(r_index, c_index)
+								* yp(r_index, c_index))
+								/ (zp(r_index, c_index) * zp(r_index, c_index));
+				J(i, 5) = (-dxI(r_index, c_index) * yp(r_index, c_index)
+						+ dyI(r_index, c_index) * xp(r_index, c_index))
+						/ zp(r_index, c_index);
+			}
+			//}
+
+		}
+		J = -J;
+		//std::cout<<J<<std::endl;
+	} catch (std::exception& e) {
+		ROS_ERROR("%s", e.what());
+	}
 }
 
 // expects float images (CV_32FC1), grayscale scaled to [0,1], metrical depth
 void alignImages(Eigen::Matrix4f& transform, const cv::Mat& imgGrayRef,
 		const cv::Mat& imgDepthRef, const cv::Mat& imgGrayCur,
-		const cv::Mat& imgDepthCur, const Eigen::Matrix3f& cameraMatrix) {
+		const cv::Mat& imgDepthCur, const Eigen::Matrix3f& cameraMatrix, Eigen::MatrixXf& covariance) {
 
 	cv::Mat grayRef = imgGrayRef;
 	cv::Mat grayCur = imgGrayCur;
 	cv::Mat depthRef = imgDepthRef;
 	cv::Mat depthCur = imgDepthCur;
+
+	//covariance= Eigen::MatrixXf::Identity(6,6);
 
 	// downsampling
 	int numPyramidLevels = 5;
@@ -532,7 +711,7 @@ void alignImages(Eigen::Matrix4f& transform, const cv::Mat& imgGrayRef,
 	std::vector<cv::Mat> depthCurPyramid;
 	depthCurPyramid.push_back(depthCur);
 	for (int i = 1; i < numPyramidLevels; ++i) {
-		// downsample camera matrix
+// downsample camera matrix
 		Eigen::Matrix3f kDown = kPyramid[i - 1];
 		kDown(0, 2) += 0.5;
 		kDown(1, 2) += 0.5;
@@ -540,15 +719,15 @@ void alignImages(Eigen::Matrix4f& transform, const cv::Mat& imgGrayRef,
 		kDown(0, 2) -= 0.5;
 		kDown(1, 2) -= 0.5;
 		kPyramid.push_back(kDown);
-		//std::cout << "Camera matrix (level " << i << "): " << kDown << std::endl;
+//std::cout << "Camera matrix (level " << i << "): " << kDown << std::endl;
 
-		// downsample grayscale images
+// downsample grayscale images
 		cv::Mat grayRefDown = downsampleGray(grayRefPyramid[i - 1]);
 		grayRefPyramid.push_back(grayRefDown);
 		cv::Mat grayCurDown = downsampleGray(grayCurPyramid[i - 1]);
 		grayCurPyramid.push_back(grayCurDown);
 
-		// downsample depth images
+// downsample depth images
 		cv::Mat depthRefDown = downsampleDepth(depthRefPyramid[i - 1]);
 		depthRefPyramid.push_back(depthRefDown);
 		cv::Mat depthCurDown = downsampleDepth(depthCurPyramid[i - 1]);
@@ -571,11 +750,11 @@ void alignImages(Eigen::Matrix4f& transform, const cv::Mat& imgGrayRef,
 //	std::cout << "t = " << t.transpose() << std::endl;
 //	std::cout << "R = " << rot << std::endl;
 
-	bool useNumericDerivative = true;
+	bool useNumericDerivative = false;
 
-	bool useGN = false;
+	bool useGN = true;
 	bool useGD = false;
-	bool useLM = true;
+	bool useLM = false;
 	bool useWeights = true;
 	int numIterations = 20;
 	int maxLevel = numPyramidLevels - 1;
@@ -584,6 +763,7 @@ void alignImages(Eigen::Matrix4f& transform, const cv::Mat& imgGrayRef,
 	Mat6f A;                      // 6 x 6
 	Mat6f diagMatA = Mat6f::Identity();
 	Vec6f delta;
+
 
 	float tmr = (float) cv::getTickCount();
 	for (int level = maxLevel; level >= minLevel; --level) {
@@ -594,9 +774,10 @@ void alignImages(Eigen::Matrix4f& transform, const cv::Mat& imgGrayRef,
 		grayCur = grayCurPyramid[level];
 		depthCur = depthCurPyramid[level];
 		Eigen::Matrix3f kLevel = kPyramid[level];
-		std::cout << "level " << level << " (size " << depthRef.cols << "x" << depthRef.rows << ")" << std::endl;
+		std::cout << "level " << level << " (size " << depthRef.cols << "x"
+				<< depthRef.rows << ")" << std::endl;
 
-		// compute gradient images
+// compute gradient images
 		cv::Mat gradX;
 		computeGradient(grayCur, gradX, 0);
 		cv::Mat gradY;
@@ -605,9 +786,9 @@ void alignImages(Eigen::Matrix4f& transform, const cv::Mat& imgGrayRef,
 		float errorLast = std::numeric_limits<float>::max();
 
 		Eigen::VectorXf previousResiduals;
-		for ( int itr = 0; itr < numIterations; ++itr) {
+		for (int itr = 0; itr < numIterations; ++itr) {
 			// compute residuals and Jacobian
-			std::cout << "iteration " << itr <<  std::endl ;
+			std::cout << "iteration " << itr << std::endl;
 			Eigen::VectorXf residuals;
 			Eigen::MatrixXf J;
 
@@ -621,20 +802,21 @@ void alignImages(Eigen::Matrix4f& transform, const cv::Mat& imgGrayRef,
 			// compute and show error image
 			//std::cout << residuals << std::endl ;
 
-		//	std::cout << J << std::endl ;
+			//	std::cout << J << std::endl ;
 			cv::Mat errorImage;
-			calculateErrorImage(residuals, grayRef.cols, grayRef.rows, errorImage);
-			//TODO:bharti		 
+			calculateErrorImage(residuals, grayRef.cols, grayRef.rows,
+					errorImage);
+			//TODO:bharti
 
-			//	cv::imshow("error", errorImage);
-			//	cv::waitKey(100);
+			//cv::imshow("error", errorImage);
+			//cv::waitKey(100);
 
 			// calculate error
 			float error = calculateError(residuals);
 			Eigen::MatrixXf Jt = J.transpose();     // 6 x n
 			Eigen::VectorXf weights;                // n x 1
 			if (useWeights) {
-			//	std::cout << "compute robust weights" << std::endl ;
+				//	std::cout << "compute robust weights" << std::endl ;
 				weighting(residuals, weights);
 				if (weights.size() != residuals.size()) {
 					std::cout << "weight vector has wrong size!" << std::endl;
@@ -664,8 +846,11 @@ void alignImages(Eigen::Matrix4f& transform, const cv::Mat& imgGrayRef,
 
 			if (useGN) {
 				// Gauss-Newton algorithm
-			//	std::cout << "usign gauss newton" << std::endl ;
+				//	std::cout << "usign gauss newton" << std::endl ;
 				A = Jt * J;
+				covariance=A.inverse();
+
+
 				// solve using Cholesky LDLT decomposition
 				//Solves Ax=b which is (ldlt decopostion of A)x=b
 				delta = -(A.ldlt().solve(b));
@@ -675,6 +860,7 @@ void alignImages(Eigen::Matrix4f& transform, const cv::Mat& imgGrayRef,
 				//A is hessian matrix approximation
 				A = Jt * J;
 				delta = -(A + lambda * diagMatA) * b;
+				covariance=A.inverse();
 
 			}
 
@@ -685,7 +871,7 @@ void alignImages(Eigen::Matrix4f& transform, const cv::Mat& imgGrayRef,
 					Sophus::SE3f::exp(xi) * Sophus::SE3f::exp(delta));
 #if DEBUG_OUTPUT
 			ROS_ERROR_STREAM( "delta = " << delta.transpose() << " size = " << delta.rows() << " x " << delta.cols() << std::endl);
-					std::cout << "xi = " << xi.transpose() << std::endl;
+			std::cout << "xi = " << xi.transpose() << std::endl;
 #endif
 
 			// compute error again
