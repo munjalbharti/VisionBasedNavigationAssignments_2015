@@ -28,6 +28,7 @@
 #include <visualization_msgs/Marker.h>
 
 cv::Mat grayRef, depthRef;
+int frame_counter =0 ;
 ros::Publisher pub_pointcloud;
 Eigen::Matrix4f integeratedTransform = Eigen::Matrix4f::Identity();
 std::ofstream obtained_trajectory_file;
@@ -145,7 +146,10 @@ void imagesToPointCloud(const cv::Mat& img_rgb, const cv::Mat& img_depth,
 }
 
 void callback(const sensor_msgs::ImageConstPtr& image_rgb,
-		const sensor_msgs::ImageConstPtr& image_depth) {
+		const sensor_msgs::ImageConstPtr& image_depth, int frame_rate) {
+
+        frame_counter++;
+	if (frame_counter % frame_rate == 0){
 
 	std::cout << "Callback called" << std::endl;
 	Eigen::Matrix3f cameraMatrix;
@@ -214,7 +218,7 @@ void callback(const sensor_msgs::ImageConstPtr& image_rgb,
 	std::cout << "Going to draw covariance" << covarianceMatrix << std::endl;
 	drawCovariance(t,covarianceMatrix,q) ;
 	pub_pointcloud.publish(*cloud);
-
+	}
 }
 
 
@@ -222,12 +226,21 @@ int main(int argc, char** argv) {
 	std::cout << "Started-- in main" << std::endl;
 	ros::init(argc, argv, "sheet2_dvo_node");
 
-	obtained_trajectory_file.open("/work/obtained_trajectory.txt");
-
-
 	ros::NodeHandle nh("~");
-    //marker_pub = nh.advertise<visualization_msgs::Marker>("visualization_marker", 1);
-    marker_pub = nh.advertise<visualization_msgs::Marker>("/visualization_marker", 1);
+        //marker_pub = nh.advertise<visualization_msgs::Marker>("visualization_marker", 1);
+        int frame_rate = 1;
+	nh.getParam("frame_rate", frame_rate);
+
+	ROS_INFO("Frame Rate  %d", frame_rate);
+
+	char name[40];
+	sprintf(name, "/work/obtained_trajectory_%d.txt", frame_rate);
+
+	//std::string filename = std::string("/work/obtained_trajectory_"+std::to_string(frame_rate)+".txt");
+	obtained_trajectory_file.open(name);
+   
+
+        marker_pub = nh.advertise<visualization_msgs::Marker>("/visualization_marker", 1);
 
 
 	message_filters::Subscriber<sensor_msgs::Image> image_rgb_sub(nh,
@@ -240,7 +253,7 @@ int main(int argc, char** argv) {
 	// ApproximateTime takes a queue size as its constructor argument, hence MySyncPolicy(10)
 	message_filters::Synchronizer<MySyncPolicy> sync(MySyncPolicy(10),
 			image_rgb_sub, image_depth_sub);
-	sync.registerCallback(boost::bind(&callback, _1, _2));
+	sync.registerCallback(boost::bind(&callback, _1, _2, frame_rate));
 
 	pub_pointcloud = nh.advertise<pcl::PointCloud<pcl::PointXYZRGB> >(
 			"pointcloud", 1);
