@@ -840,7 +840,7 @@ void alignImages(Eigen::Matrix4f& transform, const cv::Mat& imgGrayRef,
 			if (useGD) {
 				// TODO: Implement Gradient Descent (step size 0.001)
 				float stepSize = 0.001;
-				delta = stepSize * b;
+				delta = -stepSize * b;
 
 			}
 
@@ -879,6 +879,7 @@ void alignImages(Eigen::Matrix4f& transform, const cv::Mat& imgGrayRef,
 
 			if (useLM) {
 				if (error >= errorLast) {
+					///gradient decent
 					lambda = lambda * 5.0;
 					xi = lastXi;
 

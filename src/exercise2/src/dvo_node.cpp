@@ -63,7 +63,7 @@ void drawCovariance(const Eigen::Vector3f& mean, const Eigen::MatrixXf& covMatri
 
   float angle = (std::atan2((double)eigVectors(1, 0), (double)eigVectors(0, 0)));
 
-
+  std::cout << "Eigen values1::" << eigValues[0] <<"Eigen Value2::" << eigValues[1] ;
   double lengthMajor = std::sqrt((double)eigValues[0]);
   double lengthMinor = std::sqrt((double)eigValues[1]);
 
@@ -71,13 +71,13 @@ void drawCovariance(const Eigen::Vector3f& mean, const Eigen::MatrixXf& covMatri
   tempMarker.scale.y = lengthMinor*1000;
   tempMarker.scale.z = 1;
 
-//  tempMarker.pose.orientation.w = cos(angle*0.5);
-//  tempMarker.pose.orientation.z = sin(angle*0.5);
+  tempMarker.pose.orientation.w = cos(angle*0.5);
+ tempMarker.pose.orientation.z = sin(angle*0.5);
 
-  tempMarker.pose.orientation.w = q.w();
-  tempMarker.pose.orientation.x = q.x();
-  tempMarker.pose.orientation.y = q.y();
-  tempMarker.pose.orientation.z = q.z();
+//  tempMarker.pose.orientation.w = q.w();
+ // tempMarker.pose.orientation.x = q.x();
+ // tempMarker.pose.orientation.y = q.y();
+ // tempMarker.pose.orientation.z = q.z();
 
   marker_pub.publish(tempMarker);
 
