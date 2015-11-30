@@ -479,8 +479,8 @@ void deriveNumeric(const cv::Mat &grayRef, const cv::Mat &depthRef,
 		epsVec(i) = eps;
 
 		//  Multiply epsilon from left onto the current estimate
-		Eigen::VectorXf xiPerm = Sophus::SE3f::log(
-				Sophus::SE3f::exp(epsVec) * Sophus::SE3f::exp(xi));
+		Eigen::VectorXf xiPerm = Sophus::SE3f::log( Sophus::SE3f::exp(xi)*
+				Sophus::SE3f::exp(epsVec) );
 		J.col(i) = (calculateError(grayRef, depthRef, grayCur, depthCur, xiPerm,
 				K) - residuals) / eps;
 
@@ -750,7 +750,7 @@ void alignImages(Eigen::Matrix4f& transform, const cv::Mat& imgGrayRef,
 //	std::cout << "t = " << t.transpose() << std::endl;
 //	std::cout << "R = " << rot << std::endl;
 
-	bool useNumericDerivative = false;
+	bool useNumericDerivative = true;
 
 	bool useGN = true;
 	bool useGD = false;

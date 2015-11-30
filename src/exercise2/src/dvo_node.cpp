@@ -73,7 +73,7 @@ void drawCovariance(const Eigen::Vector3f& mean, const Eigen::MatrixXf& covMatri
   tempMarker.scale.z = 1;
 
   tempMarker.pose.orientation.w = cos(angle*0.5);
- tempMarker.pose.orientation.z = sin(angle*0.5);
+  tempMarker.pose.orientation.z = sin(angle*0.5);
 
 //  tempMarker.pose.orientation.w = q.w();
  // tempMarker.pose.orientation.x = q.x();
