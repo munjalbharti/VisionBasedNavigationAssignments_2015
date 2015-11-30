@@ -1,0 +1,8 @@
+<launch>
+  <group ns="firefly">
+    
+    <!-- Launch your nodes here. Extend / adapt for the subtask at hand, if necessary. --> 
+    
+    <node name="ex3_solution" pkg="ex3_solution" type="ex3_solution" output="screen"/>
+  </group>
+</launch>

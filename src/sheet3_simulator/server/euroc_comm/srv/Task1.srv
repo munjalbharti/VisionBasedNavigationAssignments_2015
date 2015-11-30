@@ -1,0 +1,5 @@
+# The image(s) from the camera(s)
+euroc_comm/VisualInertial vi_data
+---
+# The pose of the helicopter
+geometry_msgs/PoseStamped pose
